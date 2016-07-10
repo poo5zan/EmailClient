@@ -1,0 +1,29 @@
+﻿
+<div class="row" data-ng-controller="DetailController">
+    <div class="col-md-8">
+        <div class="form-group">
+            <span class="col-md-2 control-label">From</span>
+            <div class="col-md-10">
+                {{mailMessageModel.From}}
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-2 control-label">Subject</span>
+            <div class="col-md-10">
+                {{mailMessageModel.Subject}}
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-2 control-label">Body</span>
+            <div class="col-md-10">
+                {{mailMessageModel.Body}}
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" class="btn btn-info" ng-click="previous()">Previous</button>
+            </div>
+        </div>
+    </div>
+</div>

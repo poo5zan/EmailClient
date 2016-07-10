@@ -1,0 +1,65 @@
+﻿@model EmailClient.Web.Models.AccountRegisterViewModel
+
+@{
+    ViewBag.Title = "Register";
+}
+
+<h2>@ViewBag.Title.</h2>
+
+
+@section scripts{
+
+    <script src="~/Scripts/app/Models/accountRegisterModel.js"></script>
+    <script src="~/Scripts/app/Controllers/accountRegisterController.js"></script>
+
+}
+
+<div ng-controller="AccountRegisterController">
+    <form  class="css-form" name="accountRegisterForm" ng-submit="register(accountRegisterForm)" novalidate>
+        <div class="col-md-8">
+            <div class="form-group">                
+                <span class="col-md-2 control-label">Login Email</span>
+                <div class="col-md-10">
+                    <input type="email" name="LoginEmail" class="form-control" ng-model="accountRegisterModel.LoginEmail" placeholder="login email" required="" />
+                </div>                
+               
+                <div ng-show="accountRegisterForm.$submitted || accountRegisterForm.LoginEmail.$touched">
+                    <span ng-show="accountRegisterForm.LoginEmail.$error.required">Email is required</span>
+                    <span ng-show="accountRegisterForm.LoginEmail.$error.email">Email is invalid</span>
+                </div>
+            </div>
+            <div class="form-group">
+                <span class="col-md-2 control-label">Password</span>
+                <div class="col-md-10">
+                    <input type="password" name="Password" class="form-control" ng-model="accountRegisterModel.Password" placeholder="password" required="" />
+                </div>
+            </div>
+            <div ng-show="accountRegisterForm.$submitted || accountRegisterForm.Password.$touched">
+                <span ng-show="accountRegisterForm.Password.$error.required">Password is required</span>
+
+            </div>
+            <div class="form-group">
+                <span class="col-md-2 control-label">Retype Password</span>
+                <div class="col-md-10">
+                    <input type="password" name="RePassword" class="form-control" ng-model="accountRegisterModel.RePassword" placeholder="retype password" required=""
+                        data-is-equal-to="accountRegisterModel.Password/>
+
+                </div>
+                
+            </div>
+            <div ng-show="accountRegisterForm.$submitted || accountRegisterForm.RePassword.$touched">
+                <span ng-show="accountRegisterForm.RePassword.$error.required">Password is required</span>
+                <span ng-show="accountRegisterForm.RePassword.$error.isEqualTo">mismatch</span>
+
+            </div>
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <button type="submit" class="btn btn-info">Login</button>
+                </div>
+            </div>
+
+
+        </div>
+
+    </form>
+</div>

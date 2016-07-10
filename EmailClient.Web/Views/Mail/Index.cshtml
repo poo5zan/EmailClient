@@ -1,0 +1,22 @@
+﻿
+@{
+    ViewBag.Title = "Gmail [Email Client]";
+}
+
+@section scripts{
+    
+<script src="~/Scripts/app/Models/mailModel.js"></script>
+<script src="~/Scripts/app/Controllers/mailController.js"></script>
+
+}
+
+@section footerScript{
+    angular.bootstrap(document.getElementById("mailSection"),['mailModule']);
+}
+
+
+<div data-ng-app="mailModule" data-ng-controller="MailController" id="mailSection">
+    @Html.Partial("~/Views/Shared/_ValidationErrors.cshtml")
+    <div ng-view></div>
+</div>
+

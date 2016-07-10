@@ -1,0 +1,76 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <base href="/" />
+    <title>@ViewBag.Title</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+
+</head>
+<body data-ng-app="appMain">
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+                   
+                    <li>@*@Html.ActionLink("Edit Mail Setting", "EditMailSetting","Account")*@</li>
+                   
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <section id="mainbody">
+            @RenderBody()
+        </section>
+       
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year</p>
+        </footer>
+    </div>
+
+    <script type="text/javascript">
+        window.EmailClient = {};
+        //ec: email client
+        (function(ec){
+            var rootPath;
+            ec.rootPath = rootPath;
+        }(window.EmailClient));
+        EmailClient.rootPath = '@Url.Content("~")';
+    </script>
+
+    @Scripts.Render("~/bundles/angularJs");
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+
+    <script src="~/Scripts/angular-ui/ui-bootstrap.js"></script>
+    <script src="~/Scripts/angular-ui/ui-bootstrap-tpls.js"></script>
+
+    <script src="~/Scripts/app/app.js"></script>
+    <link href="~/Content/toastr.css" rel="stylesheet" />
+    <script src="~/Scripts/toastr.js"></script>
+
+   
+
+    @RenderSection("scripts", required: false)
+
+    <script type="text/javascript">
+         @RenderSection("footerScript", required: false)
+    </script>
+
+</body>
+</html>

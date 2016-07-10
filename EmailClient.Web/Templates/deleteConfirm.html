@@ -1,0 +1,26 @@
+﻿
+<div class="row" data-ng-controller="DeleteConfirmController">
+    <div class="col-md-8">
+
+        <h3>Are you sure you want to delete following email ??</h3>
+
+        <div class="form-group">
+            <span class="col-md-2 control-label">From</span>
+            <div class="col-md-10">
+                {{mailMessageModel.From}}
+            </div>
+        </div>
+        <div class="form-group">
+            <span class="col-md-2 control-label">Subject</span>
+            <div class="col-md-10">
+                {{mailMessageModel.Subject}}
+            </div>
+        </div>        
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <button type="button" class="btn btn-info" ng-click="deleteEmail(mailMessageModel)">Delete</button>
+            </div>
+        </div>
+    </div>
+</div>
